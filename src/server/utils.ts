@@ -150,12 +150,14 @@ dashboards:
           href: https://github.com/unpatchlab/Hype/discussions/1
 `;
 
+const storageDir = process.env.STORAGE_DIR || '/app/config';
+
 export const initConfig = () => {
-	if (!fs.existsSync(process.env.STORAGE_DIR || '')) {
-		throw new Error('Storage directory not found at ' + process.env.STORAGE_DIR);
+	if (!fs.existsSync(storageDir || '')) {
+		throw new Error('Storage directory not found at ' + storageDir);
 	}
 
-	const configPath = process.env.CONFIG_YAML || join(process.env.STORAGE_DIR || '', 'config.yaml');
+	const configPath = process.env.CONFIG_YAML || join(storageDir || '', 'config.yaml');
 
 	if (!fs.existsSync(configPath) || fs.readFileSync(configPath, 'utf8') === '') {
 		fs.writeFileSync(configPath, defaultYaml);
@@ -165,19 +167,19 @@ export const initConfig = () => {
 
 	const doc = YAML.parse(yaml);
 
-	const iconsDir = join(process.env.STORAGE_DIR || '', 'icons');
+	const iconsDir = join(storageDir || '', 'icons');
 
 	if (!fs.existsSync(iconsDir)) {
 		fs.mkdirSync(iconsDir);
 	}
 
-	const dataStorePath = join(process.env.STORAGE_DIR || '', 'data.json');
+	const dataStorePath = join(storageDir || '', 'data.json');
 
 	if (!fs.existsSync(dataStorePath)) {
 		fs.writeFileSync(dataStorePath, '{}');
 	}
 
-	const metricStorePath = join(process.env.STORAGE_DIR || '', 'metric.json');
+	const metricStorePath = join(storageDir || '', 'metric.json');
 
 	if (!fs.existsSync(metricStorePath)) {
 		fs.writeFileSync(metricStorePath, '{}');
