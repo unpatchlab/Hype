@@ -2,7 +2,9 @@ FROM node:18-alpine AS builder
 
 WORKDIR /app
 
-COPY package*.json .
+COPY package.json .
+COPY yarn.lock .
+
 RUN yarn install --frozen-lockfile
 
 COPY . .
@@ -17,6 +19,7 @@ COPY --from=builder /app/build build/
 COPY --from=builder /app/node_modules node_modules/
 
 COPY package.json .
+COPY yarn.lock .
 
 EXPOSE 3000
 
