@@ -152,7 +152,7 @@ dashboards:
 
 export const initConfig = () => {
 	if (!fs.existsSync(process.env.STORAGE_DIR || '')) {
-		throw new Error('Storage directory not found');
+		throw new Error('Storage directory not found at ' + process.env.STORAGE_DIR);
 	}
 
 	const configPath = process.env.CONFIG_YAML || join(process.env.STORAGE_DIR || '', 'config.yaml');
