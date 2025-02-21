@@ -20,7 +20,7 @@ export const WorldClockWidget: WidgetModel<typeof schema> = {
 	id: 'world_clock',
 	schema,
 	createId: () => {
-		return `app_${new Date().toISOString()}`;
+		return `app_world_clock_${new Date().toISOString()}`;
 	},
 	init: (cfg, _, { updateView }) => {
 		const item = schema.parse(cfg);

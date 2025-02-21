@@ -89,7 +89,65 @@ export const mapMetrics = (data: any) => {
 };
 
 const defaultYaml = `
+version: 1
 
+config:
+  message: 'Hype is a privacy-focused homelab dashboard that lets you monitor and access your services through customizable widgets. Create multiple dashboards, add widgets like system monitors, calendars, and RSS feeds, and configure everything through simple YAML files. Perfect for homelab enthusiasts who want a lightweight, flexible, and privacy-respecting solution.'
+  custom_stript: ''
+  custom_css: ''
+
+dashboards:
+  - slug: hype
+    label: Hype
+    widgets: 
+      - app: 
+          title: Home
+          subTitle: Github
+          icon: https://cdn.jsdelivr.net/gh/selfhst/icons/png/github-light.png
+          href: https://github.com/unpatchlab/hype
+      - bookmark:
+          title: Features
+          sections:
+            - name: 'Hype'
+              items:
+                - name: 'Privacy Focused'
+                  url: 'https://github.com/unpatchlab/hype'
+                - name: 'Themeable'
+                  url: 'https://github.com/unpatchlab/hype'
+                - name: 'Self Contained'
+                  url: 'https://github.com/unpatchlab/hype'
+            - name: 'Widget'
+              items:
+                - name: 'App Launched'
+                  url: 'https://github.com/unpatchlab/hype'
+                - name: 'Calendar'
+                  url: 'https://github.com/unpatchlab/hype'
+                - name: 'Github'
+                  url: 'https://github.com/unpatchlab/hype'
+                - name: 'RSS'
+                  url: 'https://github.com/unpatchlab/hype'
+                - name: 'System Monitor'
+                  url: 'https://github.com/unpatchlab/hype'
+                - name: 'World Clock'
+                  url: 'https://github.com/unpatchlab/hype'
+      - world_clock:
+          region:
+            - 'Asia/Kolkata'
+            - timezone: 'America/New_York'
+              label: 'United States (Eastern)'
+            - timezone: 'Europe/London'
+              label: 'United Kingdom'
+            - timezone: 'Asia/Tokyo'
+              label: 'Japan'
+            - timezone: 'Europe/Paris'
+              label: 'France'
+            - timezone: 'Australia/Sydney'
+              label: 'Australia (Eastern)'
+      - app: 
+          title: Missing Widget?
+          subTitle: Request a new Widget
+          icon: https://raw.githubusercontent.com/unpatchlab/Hype/refs/heads/main/static/hype.png
+          href: https://github.com/unpatchlab/Hype/discussions/1
 `;
 
 export const initConfig = () => {

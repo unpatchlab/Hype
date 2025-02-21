@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    image: unpatch/hype
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - app-config:/app/config
+    restart: unless-stopped
+
+volumes:
+  app-config:
+    driver: local

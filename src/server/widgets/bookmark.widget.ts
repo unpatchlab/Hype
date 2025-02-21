@@ -23,7 +23,7 @@ export const BookmarkWidget: WidgetModel<typeof schema> = {
 	id: 'bookmark',
 	schema,
 	createId: () => {
-		return `app_${new Date().toISOString()}`;
+		return `app_bookmark_${new Date().toISOString()}`;
 	},
 	init: (item, _, { updateView }) => {
 		const createView = () => {

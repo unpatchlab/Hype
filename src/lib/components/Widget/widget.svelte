@@ -20,9 +20,13 @@
 	<div class="flex items-center gap-3">
 		{#if config.icon}
 			{@const [ic, bg] = config.icon.split('::')}
-			<div class={['h-12 w-12 shrink-0 grow-0 rounded-md bg-white', bg]}>
-				<img src="/api/static/icons/{ic}" class="h-full w-full rounded-md" alt={config.title} />
-			</div>
+			{#if config.icon.startsWith('http') || config.icon.startsWith('https')}
+				<img src={config.icon} class="h-12 w-12 shrink-0 grow-0 rounded-md" alt={config.title} />
+			{:else}
+				<div class={['h-12 w-12 shrink-0 grow-0 rounded-md bg-white', bg]}>
+					<img src="/api/static/icons/{ic}" class="h-full w-full rounded-md" alt={config.title} />
+				</div>
+			{/if}
 		{/if}
 
 		<div class="flex min-h-12 grow flex-col justify-center">
